@@ -1,7 +1,7 @@
 import React from "react";
 import { SearchInput, SearchFilter, SearchList } from ".";
 
-const Search = ( { inputValue, handleChange, onKeyEvent, searchFilter, handleFilter, allPoke, catchPoke, deletePoke }) => {
+const Search = ( { inputValue, handleChange, onKeyEvent, searchFilter, handleFilter, allPoke, catchPoke, deletePoke, isDisabled }) => {
   return (
     <>
       <section className="search__section">
@@ -23,6 +23,7 @@ const Search = ( { inputValue, handleChange, onKeyEvent, searchFilter, handleFil
               allPoke={allPoke}
               catchPoke={catchPoke}
               deletePoke={deletePoke}
+              isDisabled={isDisabled}
             />
           </div>
         </div>

@@ -187,6 +187,18 @@ input {
     margin-top: 1rem;
 }
 
+.search-filter-buttons p {
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    color: #071C21;
+    font-weight: 500;
+    margin: 2rem 0 0.5rem 0;
+}
+
+.search-filter-buttons button:nth-child(2) {
+    margin: 0 0.25rem 0 0;
+}
+
 .search-filter-buttons button:nth-child(3) {
     background-color: #2D6E7E;
     color: #EEEEEE;

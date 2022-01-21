@@ -1,12 +1,6 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
 
-const SearchItem = ({ allPoke, catchPoke, deletePoke }) => {
-    const [ isDisabled, setIsDisabled ] = useState(false);
-
-    const disablePoke = (value) => {
-      setIsDisabled(value);
-    }
+const SearchItem = ({ allPoke, catchPoke, deletePoke, isDisabled }) => {
 
   return (
     <>
@@ -20,13 +14,10 @@ const SearchItem = ({ allPoke, catchPoke, deletePoke }) => {
                 alt={poke.name + " image"}
               />
               <div>
-                <button onClick={(e) => {
-                  disablePoke(true);
-                  if (isDisabled === true) {
-                    e.target.disabled = true;
-                  }
-                  catchPoke(poke.name);
-                }}>Attraper</button>
+                <button 
+                  onClick={() => catchPoke(poke.name)}
+                  disabled={isDisabled}
+                >Attraper</button>
                 <button onClick={() => deletePoke(poke.name)}>Supprimer</button>
               </div>
             </li>

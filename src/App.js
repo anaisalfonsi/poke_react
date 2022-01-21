@@ -8,6 +8,7 @@ const App = () => {
   const [value, setValue] = useState("");
   const [filteredPoke, setFilteredPoke] = useState([]);
   const [isInBag, setIsInBag] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     const fetchAllPoke = async () => {
@@ -61,15 +62,16 @@ const App = () => {
   };
 
   const catchPoke = (pokeName) => {
-      setIsInBag([
-        ...isInBag,
-        filteredPoke.filter((poke) => poke.name === pokeName),
-      ]);
-      setFilteredPoke([
-        ...filteredPoke.filter(
-          (poke) => poke.name != pokeName
-        ),
-      ]);
+    setIsDisabled(true);
+    setIsInBag([
+      ...isInBag,
+      filteredPoke.filter((poke) => poke.name === pokeName),
+    ]);
+    setFilteredPoke([
+      ...filteredPoke.filter(
+        (poke) => poke.name != pokeName
+      ),
+    ]);
   };
 
   const deletePoke = (pokeName) => {
@@ -114,12 +116,14 @@ const App = () => {
         allPoke={filteredPoke}
         catchPoke={catchPoke}
         deletePoke={deletePoke}
+        isDisabled={isDisabled}
       />
       <section className="catched-poke__section">
         <ul>
           <CatchedItem inBag={isInBag} deletePoke={deletePoke} />
         </ul>
       </section>
+      <button style={{width: "auto", margin: "0 0 3rem 3rem"}} onClick={(() => window.scroll(0,0))}>Revenir en haut</button>
     </div>
   );
 }

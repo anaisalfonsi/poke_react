@@ -1,6 +1,7 @@
 import React from "react";
 
 const SearchItem = ({ inBag, deletePoke }) => {
+    /* console.log(inBag); */
   return (
     <>
       {inBag
